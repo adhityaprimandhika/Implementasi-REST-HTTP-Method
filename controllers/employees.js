@@ -15,7 +15,6 @@ export const getAllEmployee = (req, res) => {
 };
 
 export const getEmployee = (req, res) => {
-  const employee = req.body;
   const { id_karyawan } = req.params;
 
   const foundEmployee = karyawan.find(
@@ -26,7 +25,6 @@ export const getEmployee = (req, res) => {
 };
 
 export const deleteEmployee = (req, res) => {
-  const employee = req.body;
   const { id_karyawan } = req.params;
 
   employees = employees.filter(
@@ -41,7 +39,7 @@ export const updateEmployee = (req, res) => {
   const { id_karyawaan, nama, posisi } = req.body;
 
   const employee = employees.find(
-    (karyawanInstance) => karyawanInstance.id_karyawan == id_karyawan
+    (employee) => employee.id_karyawan == id_karyawan
   );
 
   if (id_karyawan) {
