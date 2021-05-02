@@ -1,8 +1,9 @@
+import { v4 as uuidv4 } from "uuid";
 let employees = [];
 
 export const createEmployee = (req, res) => {
   const newEmployee = {
-    id_karyawan: employees.length + 1,
+    id_karyawan: uuidv4(),
     nama: req.body.nama,
     posisi: req.body.posisi,
   };
@@ -21,7 +22,7 @@ export const getAllEmployee = (req, res) => {
 export const getEmployee = (req, res) => {
   const { id_karyawan } = req.params;
 
-  const foundEmployee = karyawan.find(
+  const foundEmployee = employees.find(
     (employee) => employee.id_karyawan == id_karyawan
   );
 
@@ -35,20 +36,16 @@ export const deleteEmployee = (req, res) => {
     (employee) => employee.id_karyawan != id_karyawan
   );
 
-  res.send(`User with the id ${employee.id_karyawan} deleted to the database!`);
+  res.send(`Employee with the id ${id_karyawan} deleted to the database!`);
 };
 
 export const updateEmployee = (req, res) => {
   const { id_karyawan } = req.params;
-  const { id_karyawaan, nama, posisi } = req.body;
+  const { nama, posisi } = req.body;
 
   const employee = employees.find(
     (employee) => employee.id_karyawan == id_karyawan
   );
-
-  if (id_karyawan) {
-    employee.id_karyawan = id_karyawan;
-  }
 
   if (nama) {
     employee.nama = nama;
@@ -58,5 +55,5 @@ export const updateEmployee = (req, res) => {
     employee.posisi = posisi;
   }
 
-  res.send(`User with the id ${employee.id_karyawan} has been updated!`);
+  res.send(`Employee with the id ${employee.id_karyawan} has been updated!`);
 };
