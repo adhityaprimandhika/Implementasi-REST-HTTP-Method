@@ -9,7 +9,7 @@ import {
 
 const router = express.Router();
 
-router.get("/"), getAllEmployee;
+router.get("/", getAllEmployee);
 
 router.post("/", createEmployee);
 
