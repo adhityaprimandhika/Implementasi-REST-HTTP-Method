@@ -1,0 +1,60 @@
+let employees = [];
+
+export const createEmployee = (req, res) => {
+  const employee = req.body;
+
+  employees.push(employee);
+
+  res.send(`User with the name ${employee.nama} added to the database!`);
+};
+
+export const getAllEmployee = (req, res) => {
+  console.log(employees);
+
+  res.send(employees);
+};
+
+export const getEmployee = (req, res) => {
+  const employee = req.body;
+  const { id_karyawan } = req.params;
+
+  const foundEmployee = karyawan.find(
+    (employee) => employee.id_karyawan == id_karyawan
+  );
+
+  res.send(foundEmployee);
+};
+
+export const deleteEmployee = (req, res) => {
+  const employee = req.body;
+  const { id_karyawan } = req.params;
+
+  employees = employees.filter(
+    (employee) => employee.id_karyawan != id_karyawan
+  );
+
+  res.send(`User with the id ${employee.id_karyawan} deleted to the database!`);
+};
+
+export const updateEmployee = (req, res) => {
+  const { id_karyawan } = req.params;
+  const { id_karyawaan, nama, posisi } = req.body;
+
+  const employee = employees.find(
+    (karyawanInstance) => karyawanInstance.id_karyawan == id_karyawan
+  );
+
+  if (id_karyawan) {
+    employee.id_karyawan = id_karyawan;
+  }
+
+  if (nama) {
+    employee.nama = nama;
+  }
+
+  if (posisi) {
+    employee.posisi = posisi;
+  }
+
+  res.send(`User with the id ${employee.id_karyawan} has been updated!`);
+};

@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import karyawanRoutes from "./routes/karyawan.js";
+import karyawanRoutes from "./routes/employees.js";
 
 const app = express();
 const PORT = 5000;
