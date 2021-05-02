@@ -17,6 +17,6 @@ router.get("/:id_karyawan", getEmployee);
 
 router.delete("/:id_karyawan", deleteEmployee);
 
-router.patch("/:id_karyawan", updateEmployee);
+router.put("/:id_karyawan", updateEmployee);
 
 export default router;
