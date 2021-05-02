@@ -1,11 +1,15 @@
 let employees = [];
 
 export const createEmployee = (req, res) => {
-  const employee = req.body;
+  const newEmployee = {
+    id_karyawan: employees.length + 1,
+    nama: req.body.nama,
+    posisi: req.body.posisi,
+  };
 
-  employees.push(employee);
+  employees.push(newEmployee);
 
-  res.send(`User with the name ${employee.nama} added to the database!`);
+  res.send(`User with the name ${newEmployee.nama} added to the database!`);
 };
 
 export const getAllEmployee = (req, res) => {
